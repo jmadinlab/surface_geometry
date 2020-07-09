@@ -1,0 +1,14 @@
+# General stuff not worth versioning. 
+.DS_Store
+.Rhistory
+.Rproj.user
+*.html
+
+# Manuscript and revision files.
+doc/
+# Just what it says :)
+junk/
+
+# These are large geotiff files, please contact author if you want them. They are not necessary for running the analyses.
+data/megaplot
+data/records
