@@ -16,5 +16,11 @@ Variable | Description
 D | Fractal dimension from model fit
 D_ends | Fractal dimension only considering the largest (L) and smallest (L0) scale
 D_theory | Fractal dimension calculated from theory (i.e., from R and H)
+R | Surface rugosity calculated using `surfaceArea` function in R
 R_theory | Surface rugosity calculated from theory ()
 H | The height range (or height range at L)
+
+### ToDo
+
+- Apply to uses with 3D mesh
+- Look at issues with D when large drop-offs in DEM (can cause D to go below 2)
