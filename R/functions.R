@@ -78,7 +78,11 @@ rdh <- function(hvar) {
 
   # Calculate rugosity from theory
   R_theory <- R_func(H0, L0)		
-
+  
+  # Calculate rugosity from theory (integral)
+  HL0 <- 10^hvar$H0[hvar$L0==min(hvar$L0)]
+  R_theory2 <-  sum(R_func(HL0, L0)) / (2/L0)^2
+  
   R <- NA
   # Optional test: calculating R using another method
   temp3 <- crop(data, extent(x0, x0 + L, y0, y0 + L))
@@ -88,5 +92,5 @@ rdh <- function(hvar) {
   # Calcualte D from theory
   D_theory <- D_func(H, R_theory, L, L0)
 
-  return(list(D=D, D_ends=D_ends, D_theory=D_theory, R=R, R_theory=R_theory, H=H))
+  return(list(D=D, D_ends=D_ends, D_theory=D_theory, R=R, R_theory=R_theory, R_theory2=R_theory2, H=H))
 }
