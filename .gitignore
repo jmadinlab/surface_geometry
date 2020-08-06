@@ -12,3 +12,5 @@ junk/
 # These are large geotiff files, please contact author if you want them. They are not necessary for running the analyses.
 data/megaplot
 data/records
+data/noaa
+output/noaa
