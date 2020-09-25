@@ -3,19 +3,26 @@
 library(raster)
 library(parallel) # For faster processing
 library(rgdal)
+#library(rgl)
 library(plot3D)
 library(mgcv)
-# library(lme4)
-# library(MuMIn)
 library(sgeostat)
 library(jpeg)
-# library(rgeos)
 library(fields)
 
 # Function for calculating variation in windows
 fd_func <- function(x, y, s) {
   bx <- extent(cbind(c(x0 + x, y0 + y), c(x0 + x + s, y0 + y + s)))
   return(diff(range(getValues(crop(data, bx)), na.rm=TRUE)))
+}
+
+rescale <- function(x, x0, xm, n) {
+  (x - x0)/(xm - x0)*n
+}
+
+count_filled_cells <- function(dat, xmin, xmax, ymin, ymax, zmin, zmax, ngrid) {
+  ret <- table(ceiling(rescale(dat[,1], xmin, xmax, ngrid)), ceiling(rescale(dat[,2], ymin, ymax, ngrid)), ceiling(rescale(dat[,3], zmin, zmax, ngrid)))
+  sum(ret > 0)
 }
 
 R_func <- function(H0, L0) {
@@ -94,3 +101,4 @@ rdh <- function(hvar) {
 
   return(list(D=D, D_ends=D_ends, D_theory=D_theory, R=R, R_theory=R_theory, R_theory2=R_theory2, H=H))
 }
+

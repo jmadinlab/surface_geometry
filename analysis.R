@@ -196,7 +196,7 @@ summary(abd_gam2)
 # par(mfrow = c(2,2))
 # gam.check(abd_gam2)
 
-### Plots geometry-biodiversity ---- 
+### Plots geometry-biodiversity ----
 
 x_R <- seq(min(megaplot$R2_log10), max(megaplot$R2_log10), length.out = 100)
 x_R2 <- seq(min(megaplotR$R2_log10), max(megaplotR$R2_log10), length.out = 100)

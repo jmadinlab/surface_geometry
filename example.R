@@ -23,8 +23,7 @@ rect(x0, y0, x0+L, y0+L, border="white", lty=2)
 example <- height_variation(write=TRUE, return=TRUE)
 
 # Load the file if starting here:
-example <- read.csv(paste0("output/example/var_", names(data), "_0001.csv"), as.is=TRUE)
+example <- read.csv(paste0("output/", output, "/var_", names(data), "_0001.csv"), as.is=TRUE)
 
 # Calculate rugosit, fractal dimension and height range (rdh function)
 rdh(example)
-
